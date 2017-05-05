@@ -1,0 +1,9 @@
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\bin\Debug\SOProyect2.exe.config
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\bin\Debug\SOProyect2.exe
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\bin\Debug\SOProyect2.pdb
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\obj\Debug\SOProyect2.csprojResolveAssemblyReference.cache
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\obj\Debug\SOProyect2.Form1.resources
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\obj\Debug\SOProyect2.Properties.Resources.resources
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\obj\Debug\SOProyect2.csproj.GenerateResource.Cache
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\obj\Debug\SOProyect2.exe
+c:\users\djore\onedrive\documentos\visual studio 2015\Projects\SOProyect2\SOProyect2\obj\Debug\SOProyect2.pdb
