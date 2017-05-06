@@ -42,6 +42,10 @@ namespace SOProyect2
             {
                 this.scheduler.setDataConsumer(consumer);
             }
+            foreach (Producer producer in this.ProducersCreated)
+            {
+                this.scheduler.setDataProducer(producer);
+            }
         }
 
         public void createdProducers(int count)
@@ -49,6 +53,7 @@ namespace SOProyect2
             for (int i = 0; i < count; i++)
             {
                 Producer producer = new Producer(this.ProducersCreated.Count);
+                this.scheduler.setDataProducer(producer);
                 this.ProducersCreated.Add(producer);
             }
         }
@@ -57,6 +62,7 @@ namespace SOProyect2
             for (int i = 0; i < count; i++)
             {
                 Consumer consumer = new Consumer(this.ConsumersCreated.Count);
+                this.scheduler.setDataConsumer(consumer); 
                 this.ConsumersCreated.Add(consumer);
             }
         }
@@ -172,6 +178,16 @@ namespace SOProyect2
         public void activeProducer()
         {
             this.scheduler.workProducer(this.waitTransactions.Dequeue());
+        }
+
+        public string getDataProduccion()
+        {
+            return "Hay " + this.scheduler.WaitTransactions.Count + "  instrucciones en espera para los productores";
+        }
+
+        public string getDataProductores()
+        {
+            return "Se ha creado "+ this.ProducersCreated.Count+" productores totales"
         }
     }
 }
