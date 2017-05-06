@@ -50,14 +50,25 @@
             this.btnTitleEmpezar = new System.Windows.Forms.Button();
             this.NUDTitleTransations = new System.Windows.Forms.NumericUpDown();
             this.lbTitleInst = new System.Windows.Forms.Label();
+            this.tbProduccionOrigen = new System.Windows.Forms.MaskedTextBox();
+            this.lbProduccionOrigen = new System.Windows.Forms.Label();
+            this.lbProduccionDestino = new System.Windows.Forms.Label();
+            this.tbProduccionDestino = new System.Windows.Forms.MaskedTextBox();
+            this.lbProduccionRegistros = new System.Windows.Forms.Label();
+            this.NUDProduccionRegistros = new System.Windows.Forms.NumericUpDown();
+            this.btnInsertarRegistros = new System.Windows.Forms.Button();
+            this.btnEliminarRegistros = new System.Windows.Forms.Button();
+            this.lbColaProduccio = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnBalanced.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoConsumidores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDConsumidores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDProductores)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTitleTransations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDProduccionRegistros)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -217,12 +228,21 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lbColaProduccio);
+            this.tabPage2.Controls.Add(this.btnEliminarRegistros);
+            this.tabPage2.Controls.Add(this.btnInsertarRegistros);
+            this.tabPage2.Controls.Add(this.NUDProduccionRegistros);
+            this.tabPage2.Controls.Add(this.lbProduccionRegistros);
+            this.tabPage2.Controls.Add(this.tbProduccionDestino);
+            this.tabPage2.Controls.Add(this.lbProduccionDestino);
+            this.tabPage2.Controls.Add(this.lbProduccionOrigen);
+            this.tabPage2.Controls.Add(this.tbProduccionOrigen);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(350, 297);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Producción";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // timerActualizar
@@ -288,6 +308,95 @@
             this.lbTitleInst.TabIndex = 4;
             this.lbTitleInst.Text = "Selecciona la cantidad de transacciones";
             // 
+            // tbProduccionOrigen
+            // 
+            this.tbProduccionOrigen.Location = new System.Drawing.Point(195, 73);
+            this.tbProduccionOrigen.Mask = "AAAAA";
+            this.tbProduccionOrigen.Name = "tbProduccionOrigen";
+            this.tbProduccionOrigen.Size = new System.Drawing.Size(38, 20);
+            this.tbProduccionOrigen.TabIndex = 0;
+            // 
+            // lbProduccionOrigen
+            // 
+            this.lbProduccionOrigen.AutoSize = true;
+            this.lbProduccionOrigen.Location = new System.Drawing.Point(125, 76);
+            this.lbProduccionOrigen.Name = "lbProduccionOrigen";
+            this.lbProduccionOrigen.Size = new System.Drawing.Size(38, 13);
+            this.lbProduccionOrigen.TabIndex = 1;
+            this.lbProduccionOrigen.Text = "Origen";
+            // 
+            // lbProduccionDestino
+            // 
+            this.lbProduccionDestino.AutoSize = true;
+            this.lbProduccionDestino.Location = new System.Drawing.Point(120, 121);
+            this.lbProduccionDestino.Name = "lbProduccionDestino";
+            this.lbProduccionDestino.Size = new System.Drawing.Size(43, 13);
+            this.lbProduccionDestino.TabIndex = 2;
+            this.lbProduccionDestino.Text = "Destino";
+            // 
+            // tbProduccionDestino
+            // 
+            this.tbProduccionDestino.Location = new System.Drawing.Point(195, 118);
+            this.tbProduccionDestino.Mask = "AAAAA";
+            this.tbProduccionDestino.Name = "tbProduccionDestino";
+            this.tbProduccionDestino.Size = new System.Drawing.Size(38, 20);
+            this.tbProduccionDestino.TabIndex = 3;
+            // 
+            // lbProduccionRegistros
+            // 
+            this.lbProduccionRegistros.AutoSize = true;
+            this.lbProduccionRegistros.Location = new System.Drawing.Point(57, 163);
+            this.lbProduccionRegistros.Name = "lbProduccionRegistros";
+            this.lbProduccionRegistros.Size = new System.Drawing.Size(106, 13);
+            this.lbProduccionRegistros.TabIndex = 4;
+            this.lbProduccionRegistros.Text = "Cantidad de registros";
+            // 
+            // NUDProduccionRegistros
+            // 
+            this.NUDProduccionRegistros.Location = new System.Drawing.Point(195, 161);
+            this.NUDProduccionRegistros.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUDProduccionRegistros.Name = "NUDProduccionRegistros";
+            this.NUDProduccionRegistros.Size = new System.Drawing.Size(38, 20);
+            this.NUDProduccionRegistros.TabIndex = 5;
+            this.NUDProduccionRegistros.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // btnInsertarRegistros
+            // 
+            this.btnInsertarRegistros.Location = new System.Drawing.Point(52, 211);
+            this.btnInsertarRegistros.Name = "btnInsertarRegistros";
+            this.btnInsertarRegistros.Size = new System.Drawing.Size(75, 47);
+            this.btnInsertarRegistros.TabIndex = 6;
+            this.btnInsertarRegistros.Text = "Insertar\r\nRegistros";
+            this.btnInsertarRegistros.UseVisualStyleBackColor = true;
+            this.btnInsertarRegistros.Click += new System.EventHandler(this.btnInsertarRegistros_Click);
+            // 
+            // btnEliminarRegistros
+            // 
+            this.btnEliminarRegistros.Location = new System.Drawing.Point(206, 211);
+            this.btnEliminarRegistros.Name = "btnEliminarRegistros";
+            this.btnEliminarRegistros.Size = new System.Drawing.Size(75, 47);
+            this.btnEliminarRegistros.TabIndex = 7;
+            this.btnEliminarRegistros.Text = "Eliminar \nRegistros";
+            this.btnEliminarRegistros.UseVisualStyleBackColor = true;
+            this.btnEliminarRegistros.Click += new System.EventHandler(this.btnEliminarRegistros_Click);
+            // 
+            // lbColaProduccio
+            // 
+            this.lbColaProduccio.AutoSize = true;
+            this.lbColaProduccio.Location = new System.Drawing.Point(32, 28);
+            this.lbColaProduccio.Name = "lbColaProduccio";
+            this.lbColaProduccio.Size = new System.Drawing.Size(249, 13);
+            this.lbColaProduccio.TabIndex = 8;
+            this.lbColaProduccio.Text = "Hay 0 instrucciones en espera para los productores";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,9 +414,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoConsumidores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDConsumidores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDProductores)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTitleTransations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDProduccionRegistros)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,6 +447,15 @@
         private System.Windows.Forms.Label lbTitleInst;
         private System.Windows.Forms.NumericUpDown NUDTitleTransations;
         private System.Windows.Forms.Button btnTitleEmpezar;
+        private System.Windows.Forms.Label lbColaProduccio;
+        private System.Windows.Forms.Button btnEliminarRegistros;
+        private System.Windows.Forms.Button btnInsertarRegistros;
+        private System.Windows.Forms.NumericUpDown NUDProduccionRegistros;
+        private System.Windows.Forms.Label lbProduccionRegistros;
+        private System.Windows.Forms.MaskedTextBox tbProduccionDestino;
+        private System.Windows.Forms.Label lbProduccionDestino;
+        private System.Windows.Forms.Label lbProduccionOrigen;
+        private System.Windows.Forms.MaskedTextBox tbProduccionOrigen;
     }
 }
 

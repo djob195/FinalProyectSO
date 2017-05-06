@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOProyect2.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -102,6 +103,40 @@ namespace SOProyect2
             this.pnTitle.Enabled = false;
             tabControl1.Enabled = true;
             this.timerActualizar.Start();
+        }
+
+        private void btnInsertarRegistros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExecutorQuery executor = new ExecutorQuery(this.tbProduccionOrigen.Text, this.tbProduccionDestino.Text,(int)NUDProduccionRegistros.Value, Enum.SQLExecutor.insert);
+                this.ThreadDriver.quequeProduce(executor);
+                ThreadStart ts = new ThreadStart(this.ThreadDriver.activeProducer);
+                Thread thread = new Thread(ts);
+                thread.Start();
+                MessageBox.Show("Se ha insertado la Producción en espera");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEliminarRegistros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExecutorQuery executor = new ExecutorQuery(this.tbProduccionOrigen.Text, this.tbProduccionDestino.Text, (int)NUDProduccionRegistros.Value, Enum.SQLExecutor.delete);
+                this.ThreadDriver.quequeProduce(executor);
+                ThreadStart ts = new ThreadStart(this.ThreadDriver.activeProducer);
+                Thread thread = new Thread(ts);
+                thread.Start();
+                MessageBox.Show("Se ha insertado la Producción en espera");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

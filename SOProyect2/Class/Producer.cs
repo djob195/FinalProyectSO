@@ -20,6 +20,7 @@ namespace SOProyect2
         private Semaphore Full;
         private Semaphore MutexProducer;
         private Semaphore MutexTransactions;
+        private Semaphore MutexWait;
 
         List<Producer> Producers;
         Stack<Producer> ProducersFree;
@@ -38,7 +39,9 @@ namespace SOProyect2
             this.MutexProducer.WaitOne();
             if (WaitTransactions.Count != 0)
             {
+                this.MutexWait.WaitOne();
                 this.reWork(this.WaitTransactions.Dequeue());
+                this.MutexWait.Release();
             }
             else
             {
@@ -71,12 +74,13 @@ namespace SOProyect2
             addWorkersFree();
         }
 
-        public void setSemaphores(ref Semaphore empty,ref Semaphore full, ref Semaphore mutexProducer, ref Semaphore mutexTransactions)
+        public void setSemaphores(ref Semaphore empty,ref Semaphore full, ref Semaphore mutexProducer, ref Semaphore mutexTransactions, ref Semaphore mutexWait)
         {     
             this.Empty = empty;
             this.Full = full;
             this.MutexProducer = mutexProducer;
             this.MutexTransactions = mutexTransactions;
+            this.MutexWait = mutexWait;
         }
 
         public void setStructs(ref List<Producer> producers, ref Stack<Producer> producersFree,

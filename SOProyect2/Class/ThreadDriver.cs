@@ -17,6 +17,8 @@ namespace SOProyect2
         List<Producer> ProducersCreated;
         List<int> ConsumerSUsed;
         List<int> ProducerUsed;
+        Queue<ExecutorQuery> waitTransactions;
+        Semaphore WaitMutex;
 
         Scheduler scheduler;
 
@@ -26,6 +28,8 @@ namespace SOProyect2
             this.ConsumerSUsed = new List<int>();
             this.ProducersCreated = new List<Producer>();
             this.ProducerUsed = new List<int>();
+            this.waitTransactions = new Queue<Class.ExecutorQuery>();
+            this.WaitMutex = new Semaphore(1, 1);
             createdProducers(THREADSDEFAULT);
             createConsumers(THREADSDEFAULT);
             Balanced = true;
@@ -34,6 +38,10 @@ namespace SOProyect2
         public void createScheduler(int bufferSize)
         {
             this.scheduler = new Scheduler(bufferSize);
+            foreach (Consumer consumer  in this.ConsumersCreated)
+            {
+                this.scheduler.setDataConsumer(consumer);
+            }
         }
 
         public void createdProducers(int count)
@@ -152,6 +160,18 @@ namespace SOProyect2
         public int getActiveProducersInt()
         {
             return this.scheduler.getActiveProducersInt();
+        }
+
+        public void quequeProduce(ExecutorQuery executor)
+        {
+            this.WaitMutex.WaitOne();
+            this.waitTransactions.Enqueue(executor);
+            this.WaitMutex.Release();
+        }
+
+        public void activeProducer()
+        {
+            this.scheduler.workProducer(this.waitTransactions.Dequeue());
         }
     }
 }

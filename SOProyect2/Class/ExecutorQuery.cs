@@ -13,11 +13,16 @@ namespace SOProyect2.Class
     {
         string Destine;
         string Origen;
-        int repeat;
+        public int Register;
         SQLExecutor SQLExecutor;
 
-        public ExecutorQuery(string origen, string destine,int repeat, SQLExecutor SQLexecutor)
+        public ExecutorQuery(string origen, string destine,int register, SQLExecutor SQLexecutor)
         {
+            if (register<1)
+            {
+                throw new Exception("Error 5: No se ha asignado la cantidad  de registros");
+            }
+            this.Register = register;
             if (string.IsNullOrWhiteSpace(origen))
             {
                 throw new Exception("Error 1: No se ha definido el Origen");
